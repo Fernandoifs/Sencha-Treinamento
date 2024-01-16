@@ -1,0 +1,36 @@
+{
+  "data": [{
+        "id": 1,
+        "nome": "Carlos Pereira",
+        "telefone": "987654321",
+        "endereco": "Rua da Amizade",
+        "endereco_numero": "25A",
+        "estado": "São Paulo",
+        "cidade": "Campinas",
+        "cep": "13000-123",
+        "email": "carlos.pereira@example.com"
+      },
+      {
+        "id": 2,
+        "nome": "Ana Souza",
+        "telefone": "123456789",
+        "endereco": "Avenida das Palmeiras",
+        "endereco_numero": "567",
+        "estado": "Rio de Janeiro",
+        "cidade": "Rio de Janeiro",
+        "cep": "20000-456",
+        "email": "ana.souza@example.com"
+      },
+      {
+        "id": 3,
+        "nome": "Mariana Oliveira",
+        "telefone": "999888777",
+        "endereco": "Travessa dos Pinheiros",
+        "endereco_numero": "789",
+        "estado": "Minas Gerais",
+        "cidade": "Belo Horizonte",
+        "cep": "30045-678",
+        "email": "mariana.oliveira@example.com"
+      }
+    ]
+}
