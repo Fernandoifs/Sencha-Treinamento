@@ -2,7 +2,7 @@ Ext.define("Financer.view.fornecedor.Grid", {
   extend: "Ext.grid.Grid",
   alias: "widget.fornecedorgrid",
 
-  requires: ["Ext.dataview.plugin.ListPaging", "Ext.dataview.plugin.Editable"],
+  requires: ['Ext.dataview.plugin.ListPaging', 'Ext.dataview.plugin.Editable'],
   plugins: {
     listpaging: {
       autoPaging: true
