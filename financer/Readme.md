@@ -1,3 +1,0 @@
-# Financer application
-
-moderndesktopminimal template
