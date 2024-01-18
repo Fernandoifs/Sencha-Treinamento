@@ -11,27 +11,27 @@ Ext.define('Financer.model.Fornecedor', {
     ],
 
     // pra json local //
-    // proxy: {
-    //     type: 'ajax',
-    //     url: '/resources/desktop/fornecedores.json',
-    //     reader: {
-    //       type: 'json',
-    //       rootProperty: 'data',
-    //     },
-    //     autoLoad: true
-    //   },
-
-
-    // pegar da api //
-      proxy: {
-        type: 'rest',
-        url: 'http://localhost:1000/fornecedor',
+    proxy: {
+        type: 'ajax',
+        url: '/resources/desktop/fornecedores.json',
         reader: {
           type: 'json',
           rootProperty: 'data',
         },
         autoLoad: true
       },
+
+
+    // pegar da api //
+    //   proxy: {
+    //     type: 'rest',
+    //     url: 'http://localhost:1000/fornecedor',
+    //     reader: {
+    //       type: 'json',
+    //       rootProperty: 'data',
+    //     },
+    //     autoLoad: true
+    //   },
       
     validators: {
         nome: 'presence'

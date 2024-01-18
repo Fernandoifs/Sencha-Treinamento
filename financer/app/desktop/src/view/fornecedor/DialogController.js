@@ -20,6 +20,7 @@ Ext.define("Financer.view.fornecedor.DialogController", {
           if (gridView) {
             gridView.getStore().reload();
             Ext.toast("Registro salvo com sucesso!", 4000);
+            Ext.Msg.alert('Alerta', 'Registro salvo com sucesso!');
             dialog.close();
           }
         },
