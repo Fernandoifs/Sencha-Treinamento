@@ -2,13 +2,15 @@ Ext.define('Financer.view.fornecedor.MainViewController', {
   extend: 'Ext.app.ViewController',
   alias: 'controller.fornecedormainview',
 
+  requires: ["Ext.Toast"],
+
   onNovoButtonTap: function (button) {
     var me = this;
     me.openEditDialog({
       viewModel: {
         data: {
           record: Ext.create('Financer.model.Fornecedor'),
-          gridView: me.lookup('fornecedorgrid'),
+          grid: me.lookup('fornecedorgrid'),
         },
       },
     });
@@ -16,16 +18,16 @@ Ext.define('Financer.view.fornecedor.MainViewController', {
 
   openEditButtonTap: function (button) {
     var me = this,
-      gridView = me.lookup('fornecedorgrid'),
-      selected = gridView.getSelection();
+      grid = me.lookup('fornecedorgrid'),
+      selected = grid.getSelection();
 
-    if (gridView.getSelected().getCount() === 1) {
+    if (grid.getSelected().getCount() === 1) {
       me.openEditDialog({
         title: 'Editando Fornecedor',
         viewModel: {
           data: {
             record: selected,
-            gridView: me.lookup('fornecedorgrid'),
+            grid: me.lookup('fornecedorgrid'),
           },
         },
       });
@@ -44,4 +46,35 @@ Ext.define('Financer.view.fornecedor.MainViewController', {
     wizardDialog.show();
     return wizardDialog;
   },
+
+  openDelButtonTap: function () {
+
+    var me = this,
+      grid = me.lookup('fornecedorgrid'),
+      selecionados = grid.getSelected(),
+      store = grid.getStore();
+
+    if (selecionados.getCount() >= 1) {
+      Ext.Msg.confirm('Confirmação', 'Deseja realmente excluir?!', function (option) {
+        if (option === 'yes') {
+          grid.mask('Excluindo, aguarde...')
+          store.remove(selecionados.items);
+          store.sync({
+            callback: function (batch) {
+              grid.unmask();
+              if (batch.complete) {
+                Ext.toast("Registro Excluido!", 4000);
+                //store.reload();
+              } else {
+                store.rejectChances();
+              }
+            }
+          })
+        }
+      })
+    } else {
+      Ext.Msg.alert('Aviso', 'Selecione um registro para Excluir!');
+    }
+  }
+
 });

@@ -8,7 +8,7 @@ Ext.define("Financer.view.fornecedor.DialogController", {
     var me = this,
       form = me.lookup("form"),
       vm = me.getViewModel(),
-      dialog = me.getView()
+      dialog = me.getView(),
       gridView = vm.get('gridView'),
       record = vm.get("record");
 
@@ -29,4 +29,29 @@ Ext.define("Financer.view.fornecedor.DialogController", {
       form.validate();
     }
   },
+
+  onDeleteHandler: function (button) {
+
+    var me = this,
+    vm = me.getViewModel(),
+    dialog = me.getView(),
+    record = vm.get("record");
+
+      Ext.Msg.confirm('Confirmação', 'Deseja realmente excluir?!', function (option) {
+        if (option === 'yes') {
+          dialog.mask('Excluindo, aguarde...')
+          record.erase({
+            callback: function (record) {
+              dialog.unmask();
+              if (record.complete) {
+                Ext.toast("Registro Excluido!", 4000);
+                dialog.close();
+              } else {
+                record.reject();
+              }
+            }
+          })
+        }
+      })
+  }
 });
