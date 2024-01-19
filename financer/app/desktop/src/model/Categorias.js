@@ -1,4 +1,4 @@
-Ext.define('Financer.model.Fornecedor', {
+Ext.define('Financer.model.Categorias', {
     extend: 'Financer.model.Base',
     idProperty: 'id',
     
@@ -14,26 +14,17 @@ Ext.define('Financer.model.Fornecedor', {
     // pra json local //
     proxy: {
         type: 'ajax',
-        url: '/resources/desktop/fornecedores.json',
+        url: '/resources/desktop/categorias.json',
         reader: {
           type: 'json',
           rootProperty: 'data',
         },
+        writer: {
+            type: 'json'
+        },
         autoLoad: true
       },
-
-
-    // pegar da api //
-    //   proxy: {
-    //     type: 'rest',
-    //     url: 'http://localhost:1000/fornecedor',
-    //     reader: {
-    //       type: 'json',
-    //       rootProperty: 'data',
-    //     },
-    //     autoLoad: true
-    //   },
-      
+     
     validators: {
         nome: 'presence'
     },
@@ -41,10 +32,6 @@ Ext.define('Financer.model.Fornecedor', {
     fields: [
         { name: 'id', type: 'int' },
         { name: 'nome' },
-        { name: 'telefone' },
-        { name: 'endereco' },
-        { name: 'cep' },
-        { name: 'email' }
     ]
 
 })

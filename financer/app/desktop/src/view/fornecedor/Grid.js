@@ -49,8 +49,7 @@ Ext.define('Financer.view.fornecedor.Grid', {
           listeners: {
             tap: 'openDelButtonTap'
           }
-        },
-      ],
+        }],
     },
   ],
 

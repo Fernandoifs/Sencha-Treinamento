@@ -9,7 +9,7 @@ Ext.define("Financer.view.fornecedor.DialogController", {
       form = me.lookup("form"),
       vm = me.getViewModel(),
       dialog = me.getView(),
-      gridView = vm.get('gridView'),
+      gridView = vm.get("gridView"),
       record = vm.get("record");
 
     if (record.isValid()) {
@@ -20,7 +20,7 @@ Ext.define("Financer.view.fornecedor.DialogController", {
           if (gridView) {
             gridView.getStore().reload();
             Ext.toast("Registro salvo com sucesso!", 4000);
-            Ext.Msg.alert('Alerta', 'Registro salvo com sucesso!');
+            Ext.Msg.alert("Alerta", "Registro salvo com sucesso!");
             dialog.close();
           }
         },
@@ -31,27 +31,29 @@ Ext.define("Financer.view.fornecedor.DialogController", {
   },
 
   onDeleteHandler: function (button) {
-
     var me = this,
-    vm = me.getViewModel(),
-    dialog = me.getView(),
-    record = vm.get("record");
+      vm = me.getViewModel(),
+      dialog = me.getView(),
+      record = vm.get("record");
 
-      Ext.Msg.confirm('Confirmação', 'Deseja realmente excluir?!', function (option) {
-        if (option === 'yes') {
-          dialog.mask('Excluindo, aguarde...')
+    Ext.Msg.confirm("Confirmação", "Deseja realmente excluir?!",function (option) {
+        if (option === "yes") {
+          dialog.mask("Excluindo, aguarde...");
           record.erase({
             callback: function (record) {
               dialog.unmask();
-              if (record.complete) {
+              if (record.dropped) {
                 Ext.toast("Registro Excluido!", 4000);
                 dialog.close();
               } else {
                 record.reject();
               }
-            }
-          })
+            },
+          });
         }
-      })
-  }
+      });
+  },
+
+
+
 });
