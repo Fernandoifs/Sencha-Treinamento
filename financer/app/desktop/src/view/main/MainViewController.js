@@ -49,7 +49,6 @@ Ext.define("Financer.view.main.MainViewController", {
   onMenuSelectionChange: function (tree, node) {
     console.log("O menu foi selecionado! " + node.get("text"));
     this.redirectTo(node.get("xtype"));
-    this.mainRoute
   },
   
 });

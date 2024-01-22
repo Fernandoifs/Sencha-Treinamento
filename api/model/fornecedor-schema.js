@@ -1,4 +1,4 @@
-const { banco } = require("./conexao");
+const { banco } = require("../bin/conexao");
 
 const FornecedorSchema = new banco.Schema({
     _id: banco.Schema.Types.ObjectId,

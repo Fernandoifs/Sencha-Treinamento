@@ -1,4 +1,4 @@
-const { Fornecedor } = require('./fornecedor-schema');
+const { Fornecedor } = require('../model/fornecedor-schema');
 
 const obterFornecedores = async () => {
   return await Fornecedor.find();

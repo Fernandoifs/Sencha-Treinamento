@@ -1,4 +1,4 @@
-const { obterFornecedores, incluir, excluir } = require('../model/fornecedor');
+const { obterFornecedores, incluir, excluir } = require('../controller/fornecedor');
 const express = require('express');
 const router = express.Router();
 
