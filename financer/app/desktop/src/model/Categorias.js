@@ -31,7 +31,8 @@ Ext.define('Financer.model.Categorias', {
 
     fields: [
         { name: 'id', type: 'int' },
-        { name: 'nome' },
+        { name: 'descricao' },
+        { name: 'tipo', defaultValue: 'P' },
     ]
 
 })

@@ -2,15 +2,14 @@ const { banco } = require("./conexao");
 
 const FornecedorSchema = new banco.Schema({
     _id: banco.Schema.Types.ObjectId,
-    name: String,
-    phone: Number,
-    address: String,
-    address_complement: String,
-    address_reference: String,
-    address_number: Number,
-    address_neighborhood: String,
-    address_state: String,
-    address_city: String, address_postal_code: Number, email: String, cnpj_cpf: Number, rg_ie: Number
+    nome: String,
+    telefone: Number,
+    cpf: Number,
+    endereco: String,
+    numero: Number,
+    cep: Number,
+    email: String
+
 });
 
 const Fornecedor = banco.model("Fornecedor", FornecedorSchema, "fornecedores");
