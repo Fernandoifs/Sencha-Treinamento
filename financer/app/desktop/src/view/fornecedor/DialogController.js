@@ -1,28 +1,29 @@
-Ext.define("Financer.view.fornecedor.DialogController", {
-  extend: "Ext.app.ViewController",
-  alias: "controller.fornecedordialog",
+Ext.define('Financer.view.fornecedor.DialogController', {
+  extend: 'Ext.app.ViewController',
+  alias: 'controller.fornecedordialog',
 
-  requires: ["Ext.Toast"],
+  requires: ['Ext.Toast'],
 
   onSaveHandler: function () {
     var me = this,
-      form = me.lookup("form"),
-      vm = me.getViewModel(),
+      form = me.lookup('form'),
       dialog = me.getView(),
-      gridView = vm.get("gridView"),
-      record = vm.get("record");
+      vm = me.getViewModel(),  
+      gridView = vm.get('gridView'),
+      record = vm.get('record');
 
     if (record.isValid()) {
-      dialog.mask("Salvando, aguarde...");
+      dialog.mask('Salvando, aguarde...');
       record.save({
         callback: function (record) {
-          dialog.unmask;
+          dialog.unmask();
           if (gridView) {
             gridView.getStore().reload();
-            Ext.toast("Registro salvo com sucesso!", 4000);
-            Ext.Msg.alert("Alerta", "Registro salvo com sucesso!");
-            dialog.close();
-          }
+            Ext.toast('Registro salvo com sucesso!', 4000);
+            Ext.Msg.alert('Alerta', 'Registro salvo com sucesso!');
+            
+          };
+          dialog.close();
         },
       });
     } else {
@@ -34,16 +35,16 @@ Ext.define("Financer.view.fornecedor.DialogController", {
     var me = this,
       vm = me.getViewModel(),
       dialog = me.getView(),
-      record = vm.get("record");
+      record = vm.get('record');
 
-    Ext.Msg.confirm("Confirmação", "Deseja realmente excluir?!",function (option) {
-        if (option === "yes") {
-          dialog.mask("Excluindo, aguarde...");
+    Ext.Msg.confirm('Confirmação', 'Deseja realmente excluir?!',function (option) {
+        if (option === 'yes') {
+          dialog.mask('Excluindo, aguarde...');
           record.erase({
             callback: function (record) {
               dialog.unmask();
               if (record.dropped) {
-                Ext.toast("Registro Excluido!", 4000);
+                Ext.toast('Registro Excluido!', 4000);
                 dialog.close();
               } else {
                 record.reject();

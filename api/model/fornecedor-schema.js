@@ -1,7 +1,7 @@
 const { banco } = require("../bin/conexao");
 
 const FornecedorSchema = new banco.Schema({
-    _id: banco.Schema.Types.ObjectId,
+    //_id: banco.Schema.Types.ObjectId,
     nome: String,
     telefone: Number,
     cpf: Number,

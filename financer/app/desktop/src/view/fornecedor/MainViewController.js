@@ -53,8 +53,8 @@ Ext.define('Financer.view.fornecedor.MainViewController', {
       grid = me.lookup('fornecedorgrid'),
       selecionados = grid.getSelected(),
       store = grid.getStore();
+      count = selection.getCount();
 
-    if (selecionados.getCount() >= 1) {
       Ext.Msg.confirm('Confirmação', 'Deseja realmente excluir?!', function (option) {
         if (option === 'yes') {
           grid.mask('Excluindo, aguarde...')
@@ -64,7 +64,7 @@ Ext.define('Financer.view.fornecedor.MainViewController', {
               grid.unmask();
               if (batch.complete) {
                 Ext.toast("Registro Excluido!", 4000);
-                //store.reload();
+                store.reload();
               } else {
                 store.rejectChances();
               }
@@ -72,9 +72,7 @@ Ext.define('Financer.view.fornecedor.MainViewController', {
           })
         }
       })
-    } else {
-      Ext.Msg.alert('Aviso', 'Selecione um registro para Excluir!');
-    }
+
   }
 
 });
