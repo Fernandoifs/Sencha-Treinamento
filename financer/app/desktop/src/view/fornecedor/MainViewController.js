@@ -19,14 +19,14 @@ Ext.define('Financer.view.fornecedor.MainViewController', {
   openEditButtonTap: function (button) {
     var me = this,
       grid = me.lookup('fornecedorgrid'),
-      selected = grid.getSelection();
+      selecionados = grid.getSelection();
 
     if (grid.getSelected().getCount() === 1) {
       me.openEditDialog({
         title: 'Editando Fornecedor',
         viewModel: {
           data: {
-            record: selected,
+            record: selecionados,
             grid: me.lookup('fornecedorgrid'),
           },
         },
@@ -47,24 +47,23 @@ Ext.define('Financer.view.fornecedor.MainViewController', {
     return wizardDialog;
   },
 
-  openDelButtonTap: function () {
-
+  openDelButtonTap: function (button) {
     var me = this,
       grid = me.lookup('fornecedorgrid'),
       selecionados = grid.getSelected(),
       store = grid.getStore();
-      count = selection.getCount();
+      count = selecionados.getCount();
 
       Ext.Msg.confirm('Confirmação', 'Deseja realmente excluir?!', function (option) {
         if (option === 'yes') {
-          grid.mask('Excluindo, aguarde...')
+          grid.mask('Excluindo, aguarde...');
           store.remove(selecionados.items);
           store.sync({
             callback: function (batch) {
               grid.unmask();
               if (batch.complete) {
                 Ext.toast("Registro Excluido!", 4000);
-                store.reload();
+                //store.reload();
               } else {
                 store.rejectChances();
               }
