@@ -1,0 +1,46 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "fornecedor_id": 101,
+            "categorias_id": 201,
+            "descricao": "Supermercado",
+            "parcelas": 1,
+            "total_parcelas": 1,
+            "data_pagamento": "2024-02-15",
+            "data_vencimento": "2024-02-28",
+            "valor": 1500.00,
+            "descontos": 100.00,
+            "total_pago": 1400.00,
+            "observacoes": "Pagamento antecipado"
+        },
+        {
+            "id": 2,
+            "fornecedor_id": 102,
+            "categorias_id": 202,
+            "descricao": "Farmacia",
+            "parcelas": 2,
+            "total_parcelas": 3,
+            "data_pagamento": "2024-02-20",
+            "data_vencimento": "2024-02-15",
+            "valor": 1200.00,
+            "descontos": 50.00,
+            "total_pago": 1150.00,
+            "observacoes": "Pagamento parcial"
+        },
+        {
+            "id": 3,
+            "fornecedor_id": 103,
+            "categorias_id": 203,
+            "descricao": "Internet",
+            "parcelas": 1,
+            "total_parcelas": 1,
+            "data_pagamento": "2024-02-25",
+            "data_vencimento": "2024-02-20",
+            "valor": 800.00,
+            "descontos": 0.00,
+            "total_pago": 800.00,
+            "observacoes": null
+        }
+    ]
+}

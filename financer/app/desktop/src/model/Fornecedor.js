@@ -12,36 +12,36 @@ Ext.define("Financer.model.Fornecedor", {
   ],
 
   // pra json local //
-  // proxy: {
-  //     type: 'ajax',
-  //     url: '/resources/desktop/fornecedores.json',
-  //     reader: {
-  //       type: 'json',
-  //       rootProperty: 'data',
-  //     },
-  //     autoLoad: true
-  //   },
+  proxy: {
+      type: 'ajax',
+      url: '/resources/desktop/fornecedores.json',
+      reader: {
+        type: 'json',
+        rootProperty: 'data',
+      },
+      autoLoad: true
+    },
 
   // pegar da api //
-  proxy: {
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "POST, GET, OPTIONS, DELETE, PUT",
-      "Access-Control-Max-Age": "1000",
-      "Access-Control-Allow-Headers":
-        "x-requested-with, Content-Type, origin, authorization, accept, client-security-token",
-    },
-    type: "rest",
-    url: "http://localhost:1000/fornecedores",
-    reader: {
-      type: "json",
-      rootProperty: "data",
-    },
-    writer: {
-      type: "json",
-    },
-    autoLoad: true,
-  },
+  // proxy: {
+  //   headers: {
+  //     "Access-Control-Allow-Origin": "*",
+  //     "Access-Control-Allow-Methods": "POST, GET, OPTIONS, DELETE, PUT",
+  //     "Access-Control-Max-Age": "1000",
+  //     "Access-Control-Allow-Headers":
+  //       "x-requested-with, Content-Type, origin, authorization, accept, client-security-token",
+  //   },
+  //   type: "rest",
+  //   url: "http://localhost:1000/fornecedores",
+  //   reader: {
+  //     type: "json",
+  //     rootProperty: "data",
+  //   },
+  //   writer: {
+  //     type: "json",
+  //   },
+  //   autoLoad: true,
+  // },
 
   validators: {
     nome: "presence",

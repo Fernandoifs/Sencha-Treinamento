@@ -19,9 +19,6 @@ Ext.define('Financer.model.Categorias', {
           type: 'json',
           rootProperty: 'data',
         },
-        writer: {
-            type: 'json'
-        },
         autoLoad: true
       },
      
