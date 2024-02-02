@@ -2,6 +2,59 @@ Ext.define("Financer.view.contas.Grid", {
   extend: "Ext.grid.Grid",
   alias: "widget.contasgrid",
 
+  height: 400,
+
+  requires: ["Ext.dataview.plugin.ListPaging", "Ext.grid.plugin.Editable"],
+  plugins: {
+    pagingtoolbar: true,
+  },
+
+  selectable: {
+    checkbox: true,
+  },
+
+  items: [
+    {
+      xtype: "toolbar",
+      docked: "top",
+      items: [
+        {
+          xtype: "button",
+          ui: "action",
+          text: "Novo",
+          tooltip: "Clique para Adicionar um novo Registro",
+          listeners: {
+            tap: "onNovoButtonTap",
+          },
+        },
+        {
+          xtype: "button",
+          text: "Editar",
+          tooltip: "Clique para Editar um Registro",
+          disabled: true,
+          bind: {
+            disabled: "{!contasgrid.selection}",
+          },
+          listeners: {
+            tap: "openEditButtonTap",
+          },
+        },
+        {
+          xtype: "button",
+          ui: "decline",
+          text: "Excluir",
+          tooltip: "Clique para Excluir um Registro",
+          bind: {
+            hidden: "{!contasgrid.selection}",
+          },
+          listeners: {
+            tap: "openDelButtonTap",
+          },
+        },
+      ],
+    },
+  ],
+
   columns: [
     {
       text: "Vencimento",
@@ -38,16 +91,16 @@ Ext.define("Financer.view.contas.Grid", {
       width: 120,
     },
     {
-        hidden: true,
+      hidden: true,
       text: "Valor do Pagamento",
       dataIndex: "data_pagamento",
       formatter: 'date("d/m/Y")',
       align: "center",
       width: 110,
-    },{
-        text: 'Status',
-        width: 120,
-        
-    }
+    },
+    {
+      text: "Status",
+      width: 120,
+    },
   ],
 });
