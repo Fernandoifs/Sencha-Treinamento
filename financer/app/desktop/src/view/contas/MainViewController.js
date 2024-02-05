@@ -5,16 +5,15 @@ Ext.define('Financer.view.contas.MainViewController', {
   requires: ["Ext.Toast"],
 
   onNovoButtonTap: function (button) {
-    console.log('O menu foi selecionado!')
-    // var me = this;
-    // me.openEditDialog({
-    //   viewModel: {
-    //     data: {
-    //       record: Ext.create('Financer.model.Contas'),
-    //       grid: me.lookup('contasgrid'),
-    //     },
-    //   },
-    // });
+    var me = this;
+    me.openEditDialog({
+      viewModel: {
+        data: {
+          record: Ext.create('Financer.model.Contas'),
+          grid: me.lookup('contasgrid'),
+        },
+      },
+    });
   },
 
   // openEditButtonTap: function (button) {

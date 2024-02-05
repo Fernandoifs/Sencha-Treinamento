@@ -2,6 +2,8 @@ Ext.define('Financer.view.contas.Main', {
 extend: 'Ext.Panel',
 alias: 'widget.contasview',
 
+controller: 'contasmainview', 
+
 viewModel: {
     type: 'contasviewmodel',
   },

@@ -1,9 +1,7 @@
 Ext.define('Financer.view.contas.Dialog', {
   extend: 'Ext.Dialog',
-
-  controller: 'contasmainview',
-
   layout: 'fit',
+  
   width: 900,
   height: 550,
   title: 'Cadastrar de Contas a Pagar',
