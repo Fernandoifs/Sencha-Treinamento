@@ -16,25 +16,25 @@ Ext.define('Financer.view.contas.MainViewController', {
     });
   },
 
-  // openEditButtonTap: function (button) {
-  //   var me = this,
-  //     grid = me.lookup('contasgrid'),
-  //     selecionados = grid.getSelection();
+  openEditButtonTap: function (button) {
+    var me = this,
+      grid = me.lookup('contasgrid'),
+      selecionados = grid.getSelection();
 
-  //   if (grid.getSelected().getCount() === 1) {
-  //     me.openEditDialog({
-  //       title: 'Editando Contas',
-  //       viewModel: {
-  //         data: {
-  //           record: selecionados,
-  //           grid: me.lookup('contasgrid'),
-  //         },
-  //       },
-  //     });
-  //   } else {
-  //     Ext.Msg.alert('Aviso', 'Selecione apenas um registro!');
-  //   }
-  // },
+    if (grid.getSelected().getCount() === 1) {
+      me.openEditDialog({
+        title: 'Editando Contas',
+        viewModel: {
+          data: {
+            record: selecionados,
+            grid: me.lookup('contasgrid'),
+          },
+        },
+      });
+    } else {
+      Ext.Msg.alert('Aviso', 'Selecione apenas um registro!');
+    }
+  },
 
   openEditDialog: function (config) {
     var me = this,
@@ -47,31 +47,31 @@ Ext.define('Financer.view.contas.MainViewController', {
     return wizardDialog;
   },
 
-  // openDelButtonTap: function (button) {
-  //   var me = this,
-  //     grid = me.lookup('contasgrid'),
-  //     selecionados = grid.getSelected(),
-  //     store = grid.getStore();
-  //     count = selecionados.getCount();
+  openDelButtonTap: function (button) {
+    var me = this,
+      grid = me.lookup('contasgrid'),
+      selecionados = grid.getSelected(),
+      store = grid.getStore();
+      count = selecionados.getCount();
 
-  //     Ext.Msg.confirm('Confirmação', 'Deseja realmente excluir?!', function (option) {
-  //       if (option === 'yes') {
-  //         grid.mask('Excluindo, aguarde...');
-  //         store.remove(selecionados.items);
-  //         store.sync({
-  //           callback: function (batch) {
-  //             grid.unmask();
-  //             if (batch.complete) {
-  //               Ext.toast("Registro Excluido!", 4000);
-  //               //store.reload();
-  //             } else {
-  //               store.rejectChances();
-  //             }
-  //           }
-  //         })
-  //       }
-  //     })
+      Ext.Msg.confirm('Confirmação', 'Deseja realmente excluir?!', function (option) {
+        if (option === 'yes') {
+          grid.mask('Excluindo, aguarde...');
+          store.remove(selecionados.items);
+          store.sync({
+            callback: function (batch) {
+              grid.unmask();
+              if (batch.complete) {
+                Ext.toast("Registro Excluido!", 4000);
+                //store.reload();
+              } else {
+                store.rejectChances();
+              }
+            }
+          })
+        }
+      })
 
-  // }
+  }
 
 });
