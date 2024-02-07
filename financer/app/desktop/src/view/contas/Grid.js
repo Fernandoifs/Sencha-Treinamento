@@ -7,6 +7,7 @@ Ext.define("Financer.view.contas.Grid", {
   requires: ["Ext.dataview.plugin.ListPaging", "Ext.grid.plugin.Editable"],
   plugins: {
     pagingtoolbar: true,
+    gridexporter: true
   },
 
   selectable: {
@@ -50,7 +51,16 @@ Ext.define("Financer.view.contas.Grid", {
           listeners: {
             tap: "openDelButtonTap",
           },
-        },
+        }, {
+          xtype: 'spacer',
+          flex: 1,
+        }, {
+          xtype: 'button',
+          text: 'Exportar',
+          iconCls: 'x-fa fa-file-excell',
+          handler: 'onExportButtonTap'
+        }
+
       ],
     },
   ],
@@ -65,7 +75,7 @@ Ext.define("Financer.view.contas.Grid", {
     },
     {
       text: "Categoria",
-      dataIndex: "categoria_id",
+      dataIndex: "categorias_descricao",
       width: 130,
     },
     {
@@ -75,18 +85,20 @@ Ext.define("Financer.view.contas.Grid", {
     },
     {
       text: "Fornecedor",
-      dataIndex: "fornecedor_id",
+      dataIndex: "fornecedor_nome",
       width: 130,
     },
     {
       text: "Valor Previsto",
       dataIndex: "valor",
+      formatter: 'brMoney',
       align: "right",
       width: 120,
     },
     {
       text: "Valor Pago",
       dataIndex: "valor_pago",
+      formatter: 'brMoney',
       align: "right",
       width: 120,
     },
@@ -101,6 +113,29 @@ Ext.define("Financer.view.contas.Grid", {
     {
       text: "Status",
       width: 120,
+      align: 'center',
+      exportRenderer: true,
+      renderer: function (value, record, dataIndex, cell, column) {
+        if (record.get('valor_pago') && record.get('data_pagamento')) {
+          return 'Pago';
+
+        } else {
+          return 'Aberto'
+        };
+
+      }
+      // renderer: function (value, record, dataIndex, cell, column) {
+      //   if (record.get('valor_pago') && record.get('data_pagamento')) {
+      //     cell.addCls('text-green');
+      //     return 'Pago';
+      //   } else {
+      //     if (record.get('data_vencimento').getTime() < new Date()) {
+      //       cell.addCls('text-red');
+      //     }
+      //     return 'Aberto'
+      //   };
+
+      // }
     },
   ],
 });

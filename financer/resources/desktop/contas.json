@@ -3,7 +3,9 @@
         {
             "id": 1,
             "fornecedor_id": 101,
+            "fornecedor_nome": "João",
             "categorias_id": 201,
+            "categorias_descricao": "Conta de energia elétrica",
             "descricao": "Supermercado",
             "parcelas": 1,
             "total_parcelas": 1,
@@ -17,7 +19,9 @@
         {
             "id": 2,
             "fornecedor_id": 102,
+            "fornecedor_nome": "Guto",
             "categorias_id": 202,
+            "categorias_descricao": "Pagamento de salários",
             "descricao": "Farmacia",
             "parcelas": 2,
             "total_parcelas": 3,
@@ -31,7 +35,8 @@
         {
             "id": 3,
             "fornecedor_id": 103,
-            "categorias_id": 203,
+            "fornecedor_nome": "Maria",
+            "categorias_descricao": "Pagamento de salários",
             "descricao": "Internet",
             "parcelas": 1,
             "total_parcelas": 1,

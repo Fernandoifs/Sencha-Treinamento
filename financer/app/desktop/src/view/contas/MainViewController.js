@@ -72,6 +72,14 @@ Ext.define('Financer.view.contas.MainViewController', {
         }
       })
 
+  },
+
+  onExportButtonTap: function(button){
+    this.lookup('contasgrid').saveDocumentAs({
+      title: 'Contas a Pagar',
+      type: 'excel',
+      fileName: 'relatorio.xlsx'
+    })
   }
 
 });

@@ -5,8 +5,12 @@
   "framework": "ext",
   "template": "moderndesktopminimal",
   "indexHtmlPath": "index.html",
+  "locale": "pt_BR",
   "requires": [
-    "font-awesome"
+    "font-awesome",
+    "treegrid",
+    "exporter",
+    "locale"
   ],
 
   "builds": {

@@ -32,7 +32,9 @@ Ext.define("Financer.model.Contas", {
   fields: [
     { name: "id", type: "int" },
     { name: "fornecedor_id", type: "int" },
+    //{ name: "fornecedor_nome", mapping: 'supplier.name', persist: false},
     { name: "categorias_id", type: "int" },
+    //{ name: "categorias_descricao", mapping: 'bill_category.descriptinon', persist: false},
     { name: "descricao", type: "string" },
     { name: "parcelas", type: "int", defaultValue: 1 },
     { name: "total_parcelas", type: "int", defaultValue: 1 },
