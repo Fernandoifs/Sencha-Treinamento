@@ -2,7 +2,7 @@ Ext.define('Financer.view.contas.MainViewController', {
   extend: 'Ext.app.ViewController',
   alias: 'controller.contasmainview',
 
-  requires: ["Ext.Toast"],
+  requires: ["Ext.Toast","Ext.grid.plugin.Exporter"],
 
   onNovoButtonTap: function (button) {
     var me = this;

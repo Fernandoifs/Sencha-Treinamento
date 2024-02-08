@@ -23,11 +23,21 @@
           "src": "${build.id}/sass/save"
         }
       }
+    },
+    "phone": {
+      "toolkit": "modern",
+      "theme": "theme-material",
+      "sass": {
+        "generated": {
+          "var": "${build.id}/sass/save.scss",
+          "src": "${build.id}/sass/save"
+        }
+      }
     }
   },
   
-  "classpath": ["app/${build.id}/src"],
-  "overrides": ["app/${build.id}/overrides"],
+  "classpath": ["app/${build.id}/src","app/shared/src"],
+  "overrides": ["app/${build.id}/overrides","app/shared/src"],
 
   "sass": {
     "namespace": "Financer",
