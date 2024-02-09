@@ -36,10 +36,7 @@ Ext.define("Financer.view.main.MainViewController", {
     }
 
     if (!centerView.getComponent(xtype)) {
-      centerView.add({
-        xtype: xtype,
-        itemId: xtype,
-      });
+      centerView.add({xtype: xtype, itemId: xtype});
     }
 
     centerView.setActiveItem(xtype);
