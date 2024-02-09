@@ -20,7 +20,7 @@ Ext.define('Financer.view.main.MenuView', {
         },
         items: [{
             text: 'Dashboard',
-            tag: 'dashboardview'
+            tag: 'homeview'
         }, {
             text: 'Contas a Pagar',
             tag: 'contaslista'

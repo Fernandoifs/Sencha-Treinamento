@@ -9,7 +9,7 @@ Ext.define('Financer.view.main.MainViewController', {
     },
 
     init: function () {
-        this.redirectTo('dashboardview', true)
+        this.redirectTo('homeview', true)
     },
 
     onMenuClick: function (button) {

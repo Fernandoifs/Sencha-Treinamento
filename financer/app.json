@@ -10,7 +10,8 @@
     "font-awesome",
     "treegrid",
     "exporter",
-    "locale"
+    "locale",
+    "charts"
   ],
 
   "builds": {
